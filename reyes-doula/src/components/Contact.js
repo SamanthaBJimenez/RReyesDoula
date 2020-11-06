@@ -1,13 +1,25 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
+import { ToastContainer, toast, Flip} from 'react-toastify';
 
 const Contact = () => {
+
+    const submitNotification = () => toast.success('Your message was sent! Thank you for reaching out!', {
+        position: "bottom-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
 
     const handleSubmit = (e) => {
         e.preventDefault();
         emailjs.sendForm('gmail', 'TEMPLATE_NAME_HERE', e.target, 'USER_NAME_HERE')
             .then((result) => {
                 console.log(result.text);
+                submitNotification();
             }, (error) => {
                 console.log(error.text);
             });
@@ -40,6 +52,19 @@ const Contact = () => {
                         <button type="submit">Send Message</button>
                     </div>
                 </form>
+                <ToastContainer
+                    class="toast"
+                    position="bottom-right"
+                    autoClose={4000}
+                    hideProgressBar={false}
+                    transition={Flip}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
             </div>
         </div>
     )
