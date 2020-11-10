@@ -1,6 +1,7 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
 import { ToastContainer, toast, Flip} from 'react-toastify';
+import { Form, Button, Col, Container } from 'react-bootstrap';
 
 const Contact = () => {
 
@@ -27,46 +28,53 @@ const Contact = () => {
     };
 
     return (
-        <div >
-            <p>Welcome to the Contact Form page!</p>
-            <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <div>
-                        <label for="name">Your Name</label>
-                        <input type="text" name="name" id="name" required/>
-                        <div class="validate"></div>
-                    </div>
-                    <div>
-                        <label for="email">Your Email</label>
-                        <input type="email" name="email" id="email" data-msg="Please enter a valid email" required/>
-                        <div class="validate"></div>
-                    </div>
-                    </div>
-                    <div>
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="10" data-rule="required" data-msg="Please write something for Rosalie Reyes" required></textarea>
-                        <div class="validate"></div>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit">Send Message</button>
-                    </div>
-                </form>
-                <ToastContainer
-                    class="toast"
-                    position="bottom-right"
-                    autoClose={4000}
-                    hideProgressBar={false}
-                    transition={Flip}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                />
-            </div>
-        </div>
+        <Container className="contact_form">
+            <Form.Row>
+                <h2 className="contact_header">Contact Me</h2>
+            </Form.Row>
+            <Form onSubmit={handleSubmit}>
+                <Form.Row>
+                    <Form.Group as={Col}>
+                        <Form.Label>Name *</Form.Label>
+                        <Form.Control type="text" placeholder="Enter your name" required/>
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                        <Form.Label>Email *</Form.Label>
+                        <Form.Control type="email" placeholder="Enter your email" required/>
+                    </Form.Group>
+                </Form.Row>
+                <Form.Row>
+                    <Form.Group as={Col}>
+                        <Form.Label>Estimated Due Date</Form.Label>
+                        <Form.Control type="date"/>
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                        <Form.Label>Pronouns *</Form.Label>
+                        <Form.Control type="text" placeholder="Enter your preferred pronouns" required/>
+                    </Form.Group>
+                </Form.Row>
+                <Form.Group>
+                    <Form.Label>Message *</Form.Label>
+                    <Form.Control as="textarea" rows={10} placeholder="Enter your detailed message here" required/>
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+            </Form>
+            <ToastContainer
+                class="toast"
+                position="bottom-right"
+                autoClose={4000}
+                hideProgressBar={false}
+                transition={Flip}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+        </Container>
     )
 };
 
