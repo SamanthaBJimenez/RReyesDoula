@@ -1,12 +1,12 @@
 import React from 'react';
+import { Container, Jumbotron } from 'react-bootstrap';
 
 const Landing = () => {
     return (
-        <div>
-            <p>Hello World!</p>
-            <br/>
-            <p>Welcome to the Landing page!</p>
-        </div>
+        <Container className="landing_header">
+            <h1>Rosalie Reyes</h1>
+            <h3 className="doula_title">Doula</h3>
+        </Container>
     )
 };
 
