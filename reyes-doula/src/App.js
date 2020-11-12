@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch } from 'react-router-dom';
 import Bio from './components/Bio';
 import Contact from './components/Contact';
-import Error from './components/Error';
+import Error from './components/Error/Error';
 import Landing from './components/Landing';
 import Navigation from './components/Navigation';
 import Faq from './components/Faq';
